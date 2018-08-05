@@ -129,7 +129,7 @@ DWORD WINAPI BackgroundThread(LPVOID lpszReserved)
 
 		InvalidateRect(hWindow, 0, TRUE);
 
-		Sleep(1000 * 60 * 5);
+		Sleep(1000 * 30);
 	}
 
 	return 0;
