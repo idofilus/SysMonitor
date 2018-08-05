@@ -6,10 +6,10 @@
 
 #define WINDOW_TITLE "SysMonitor"
 #define WINDOW_CLASS "SysMonitor"
-#define WINDOW_BACKGROUND_COLOR RGB(30, 30, 30)
-#define WINDOW_TEXT_COLOR RGB(245, 245, 245)
+#define WINDOW_BACKGROUND_COLOR RGB(0, 0, 0)
+#define WINDOW_TEXT_COLOR RGB(255, 255, 255)
 #define WINDOW_LIGHT_TEXT_COLOR RGB(175, 175, 175)
-#define WINDOW_OPACITY 95
+#define WINDOW_OPACITY 85
 
 using namespace std;
 
@@ -213,7 +213,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		return 1;
 	}
 
-	HWND hWnd = CreateWindow(WINDOW_CLASS, WINDOW_TITLE, WS_POPUPWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 350, 25, NULL, NULL, hInstance, NULL);
+	HWND hWnd = CreateWindow(WINDOW_CLASS, WINDOW_TITLE, WS_POPUP | WS_SYSMENU, CW_USEDEFAULT, CW_USEDEFAULT, 350, 25, NULL, NULL, hInstance, NULL);
 
 	if (!hWnd)
 	{
@@ -281,13 +281,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
 			hdc = BeginPaint(hWnd, &ps);
 			SetBkColor(hdc, WINDOW_BACKGROUND_COLOR);
-			static long lfHeight = -MulDiv(10, GetDeviceCaps(hdc, LOGPIXELSY), 72);
-			hFont = CreateFont(lfHeight, 0, 0, 0, FW_NORMAL, 0, 0, 0, ANSI_CHARSET, OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS, DRAFT_QUALITY, VARIABLE_PITCH, TEXT("Arial"));
+			static long lfHeight = -MulDiv(9, GetDeviceCaps(hdc, LOGPIXELSY), 72);
+			hFont = CreateFont(lfHeight, 0, 0, 0, FW_NORMAL, 0, 0, 0, ANSI_CHARSET, OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS, PROOF_QUALITY, VARIABLE_PITCH, TEXT("Arial"));
 			hOldFont = (HFONT)SelectObject(hdc, hFont);
 
 			static int textSize = 7;
 			static int marginRight = 5;
-			static int y = 4;
+			static int y = 5;
 
 			int leftOffset = 10;
 
