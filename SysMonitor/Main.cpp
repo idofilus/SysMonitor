@@ -127,6 +127,8 @@ DWORD WINAPI BackgroundThread(LPVOID lpszReserved)
 			drive->update();
 		}
 
+		InvalidateRect(hWindow, 0, TRUE);
+
 		Sleep(1000 * 60 * 5);
 	}
 
