@@ -287,8 +287,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 			static int textSize = 7;
 			static int marginRight = 5;
-			static int leftOffset = 10;
 			static int y = 4;
+
+			int leftOffset = 10;
 
 			for (auto drive : sysInfo->drives)
 			{
